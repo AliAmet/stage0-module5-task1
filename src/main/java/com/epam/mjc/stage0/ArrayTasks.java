@@ -59,12 +59,10 @@ public class ArrayTasks {
      * arr = [5, -3, -4],   number = 10    ->  -1
      */
     public int findIndexOfNumber(int[] arr, int number) {
-        int index = 0;
-        for (int i = 1; i <= arr.length; i++){
+        int index = -1;
+        for (int i = 0; i < arr.length; i++){
             if (arr[i] == number)
-                index = i;
-            else
-                index = -1;
+                index = i+1;
         }
         return index;
     }
@@ -98,10 +96,19 @@ public class ArrayTasks {
      * arr = [1, 2]         -> [1, 2]
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
-        int arr2[] = new int[arr.length];
-        for (int i = 0; i < arr.length; i++){
+        int count= 0;
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i] > 0)
-                arr2[i] = arr[i];
+                count++;
+        }
+        int arr2[] = new int[count];
+        int index = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                arr2[index] = arr[i];
+                index++;
+            }
         }
         return arr2;
     }
